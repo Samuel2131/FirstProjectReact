@@ -9,7 +9,7 @@ import { buttonsArray } from './utils/buttons';
 
 
 const App = () => {
-  const [color, setColor] = useState("gray");
+  const [color, setColor] = useState<"blue" | "red" | "yellow" | "green" | "black" | "gray" | "#40E0D0">("gray");
   return (
     <div className="App container-fluid w-100 d-flex align-items-center flex-column">
       <div className='d-flex, align-items-center'>
@@ -24,12 +24,12 @@ const App = () => {
           </Frame>
           )
       })}
-      <Frame border={5} color='red'>
+      <Frame border={5} color={color}>
         <div className='d-flex align-items-center'>
           <p>Prova frame</p>
         </div>
       </Frame>
-      <Frame border={3} color='green'/>
+      <Frame border={3} color={color} />
     </div>
   );
 }
