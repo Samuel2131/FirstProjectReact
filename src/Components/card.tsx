@@ -4,6 +4,7 @@ import { Description } from "./description";
 import { IconBar } from "./iconBar";
 
 type CardProps = {
+    id: number,
     author: {
         name: string,
         image: string,

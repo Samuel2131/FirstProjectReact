@@ -13,6 +13,6 @@ type ColorButtonType = {
 export const ColorButton = (props: ColorButtonType) => {
     const {classBootstrap, color, setColor, text} = props.buttonStyle;
     return (
-        <button type="button" className={`btn ${classBootstrap} m-2`} onClick={() => setColor(color)}>{text}</button>
+        <button key={color} type="button" className={`btn ${classBootstrap} m-2`} onClick={() => setColor(color)}>{text}</button>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Children } from 'react'
 //import logo from './logo.svg';
 import './App.css';
 import { Card } from './Components/card';
@@ -56,29 +56,29 @@ const App = () => {
   return (
     <div className="App container-fluid w-100 d-flex align-items-center flex-column">
       <div className='d-flex, align-items-center'>
-        {buttonsArray.map(({classBootstrap, color, text}) => {
+        {Children.toArray(buttonsArray.map(({classBootstrap, color, text}) => {
           return <ColorButton buttonStyle={{classBootstrap, color, setColor, text}}/>;
-        })}
+        }))}
       </div>
 
       <textarea id="textArea" name='textArea' value={textInInput} onChange={changeText}></textarea>
       <button type="button" className="btn btn-primary mt-3" onClick={() => setTextToSearch(textInInput)}>Search</button>
 
-      {articles.map(({author, urlToImage, description, title}) => {
+      {Children.toArray(articles.map(({author, urlToImage, description, title}) => {
         return (
           <Frame border={5} color={color}>
             <CardNews author={author} urlToImage={urlToImage} description={description} title={title} /> 
           </Frame>
           )
-      })}
+      }))}
 
-      {news.map(({author, content}, index) => {
+      {Children.toArray(news.map(({author, content}, index) => {
         return (
-          <Frame border={5} color={color}>
-            <Card author={author} content={content} product={product[index] ? product[index] : undefined} /> 
+          <Frame border={5} color={color} >
+            <Card author={author} content={content} product={product[index] ? product[index] : undefined} id={index} /> 
           </Frame>
           )
-      })}
+      }))}
 
       <Frame border={5} color={color}>
         <div className='d-flex align-items-center'>
